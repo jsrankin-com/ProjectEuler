@@ -6,13 +6,9 @@
 int SumMultiplesOfThreeAndFive(int low, int high)
 {
 	int total = 0;
-	while (low <= high)
+	while (low < high)
 	{
-		if (low % 3 == 0)
-		{
-			total += low;
-		}
-		else if (low % 5 == 0)
+		if (low % 3 == 0 || low % 5 == 0)
 		{
 			total += low;
 		}
