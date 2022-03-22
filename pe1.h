@@ -41,14 +41,14 @@ int OptimizedMultiplesOfThreeAndFive(int low, int high)
 	while (low <= high)
 	{
 		low_str = std::to_string(low);
-		if (SumDigits(low_str) % 3 == 0)
-		{
-			std::cout << "Multiple of 3: " << low << std::endl;
-			total += low;
-		}
-		else if (low_str.back() == '5' || low_str.back() == '0')
+		if (low_str.back() == '5' || low_str.back() == '0'))
 		{
 			std::cout << "Multiple of 5: " << low << std::endl;
+			total += low;
+		}
+		else if (SumDigits(low_str) % 3 == 0)
+		{
+			std::cout << "Multiple of 3: " << low << std::endl;
 			total += low;
 		}
 
