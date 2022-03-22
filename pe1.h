@@ -23,12 +23,12 @@ int SumMultiplesOfThreeAndFive(int low, int high)
 
 int SumDigits(std::string n)
 {
-
 	int total = 0;
 
-	for (char c : n)
+	//Implicit cast
+	for (int c : n)
 	{
-		total += static_cast<int>(c);
+		total += c;
 	}
 
 	return total;
