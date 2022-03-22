@@ -34,7 +34,7 @@ int SumDigits(std::string n)
 	return total;
 }
 
-int OptimizedMultiplesOfThreeAndFive(int low, int high)
+int MultiplesOfThreeAndFiveAlternate(int low, int high)
 {
 	int total = 0;
 	std::string low_str;
@@ -43,12 +43,10 @@ int OptimizedMultiplesOfThreeAndFive(int low, int high)
 		low_str = std::to_string(low);
 		if (low_str.back() == '5' || low_str.back() == '0'))
 		{
-			std::cout << "Multiple of 5: " << low << std::endl;
 			total += low;
 		}
 		else if (SumDigits(low_str) % 3 == 0)
 		{
-			std::cout << "Multiple of 3: " << low << std::endl;
 			total += low;
 		}
 
