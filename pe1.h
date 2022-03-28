@@ -62,7 +62,7 @@ long long MultiplesOfThreeAndFiveOptimized(int low, int high)
 	long long fives = 5;
 
 
-	//Handle starting vaue greater than 3
+	//Handle starting value greater than 3
 	if (low > 3)
 	{
 		if (low % 3 == 0)
@@ -75,7 +75,7 @@ long long MultiplesOfThreeAndFiveOptimized(int low, int high)
 		}
 	}
 
-	//Handle starting vaue greater than 5
+	//Handle starting value greater than 5
 	if (low > 5)
 	{
 		if (low % 5 == 0)
