@@ -54,3 +54,53 @@ int MultiplesOfThreeAndFiveAlternate(int low, int high)
 	}
 	return total;
 };
+
+long long MultiplesOfThreeAndFiveOptimized(int low, int high)
+{
+	long long total = 0;
+	long long threes = 3;
+	long long fives = 5;
+
+
+	//Handle starting vaue greater than 3
+	if (low > 3)
+	{
+		if (low % 3 == 0)
+		{
+			threes = low;
+		}
+		else
+		{
+			threes = low + (3-(low % 3));
+		}
+	}
+
+	//Handle starting vaue greater than 5
+	if (low > 5)
+	{
+		if (low % 5 == 0)
+		{
+			fives = low;
+		}
+		else
+		{
+			fives = low + (5 - (low % 5));
+		}
+	}
+
+	while (fives <= high)
+	{
+		total += fives;
+		fives += 5;
+		
+	}
+	while (threes <= high)
+	{
+		//Already added if 5 is a factor
+		if (threes % 5 != 0)
+			total += threes;
+		threes += 3;
+	}
+
+	return total;
+};
