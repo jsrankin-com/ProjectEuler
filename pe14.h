@@ -24,12 +24,11 @@ long long LongestCollatzSequence(long long high)
 	std::vector<long long> cache(high+1);
 	long long largest = 0;
 	long long seed = 0;
-	long long sequence;
 
 	cache[1] = 1;
 
 	for (long long i = 2; i <= high; ++i) {
-		sequence = i;
+		long long sequence = i;
 		long long counter = 0;
 
 		//if sequence is less than i then it must be in the chache
