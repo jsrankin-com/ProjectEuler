@@ -13,14 +13,37 @@ long long Fibonacci(long long n)
 long long SumEvenFibonacciNumbers(long long high)
 {
 	long long total = 0;
-	long long f = Fibonacci(2);
-	for (long long i = 3; f<high; ++i)
+	long long f = 2;
+	for (long long i = 3; f < high; ++i)
 	{
 		f = Fibonacci(i);
 		if (f % 2 == 0)
 		{
 			total += f;
+
 		}
+	}
+	return total;
+}
+
+long long SumEvenFibonacciNumbersOptimized(long long high)
+{
+	long long total = 0;
+	long long f = 2;
+
+	//Sequence pattern OOD, ODD, EVEN,...
+	long long offset = 3;
+
+	for (long long i = 3; f < high; ++i)
+	{
+		f = Fibonacci(i);
+
+		if (i == offset)
+		{
+			total += f;
+			offset += 3;
+		}
+
 	}
 	return total;
 }
