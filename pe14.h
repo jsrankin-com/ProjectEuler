@@ -21,8 +21,8 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 long long LongestCollatzSequence(long long high)
 {
 	//Memoization
-	std::vector<long long> cache(high+1);
-	long long largest = 0;
+	std::vector<long long> cache(high + 1);
+	long long longest = 0;
 	long long seed = 0;
 
 	cache[1] = 1;
@@ -31,21 +31,21 @@ long long LongestCollatzSequence(long long high)
 		long long sequence = i;
 		long long counter = 0;
 
-		//if sequence is less than i then it must be in the chache
+		//If sequence is less than i then it must be in the chache
 		while (i <= sequence) {
 			++counter;
-			//even or odd
-			if ((sequence % 2) == 0) 
+			//Even or odd
+			if ((sequence % 2) == 0)
 				sequence /= 2;
-			else 
+			else
 				sequence = sequence * 3 + 1;
 		}
-		//Store result in cache
+		//Store the new result in cache
 		cache[i] = cache[sequence] + counter;
 
 		//Check if sequence is the best solution
-		if (cache[i] > largest) {
-			largest = cache[i];
+		if (cache[i] > longest) {
+			longest = cache[i];
 			seed = i;
 		}
 	}
