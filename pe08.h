@@ -26,7 +26,7 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 
 long long LargestProductInSeries(std::string source, size_t buffer)
 {
-	long long length = source.length();
+	size_t length = source.length();
 	long long largest = 0;
 
 	//Ensure we don't read past the end of the string
@@ -39,6 +39,7 @@ long long LargestProductInSeries(std::string source, size_t buffer)
 			product *= (source[i + j] - '0');
 		}
 
+
 		if (largest < product)
 		{
 			largest = product;
@@ -48,13 +49,14 @@ long long LargestProductInSeries(std::string source, size_t buffer)
 	return largest;
 }
 
+
 long long LargestProductInSeriesOptimized(std::string source, size_t buffer)
 {
-	long long length = source.length();
+	size_t length = source.length();
 	long long largest = 0;
 	long long product = 1;
-
 	size_t count = 0;
+
 	//Ensure we don't read past the end of the string
 	for (size_t i = 0; i < length; ++i)
 	{
@@ -68,14 +70,13 @@ long long LargestProductInSeriesOptimized(std::string source, size_t buffer)
 			product *= (source[i] - '0');
 			++count;
 		}
-		else if (buffer <= count)
+		else if (buffer == count)
 		{
 			//Divide by the removed number, multiply by the added number
 			product = product / (source[i - buffer] - '0') * (source[i] - '0');
-			++count;
 		}
 
-		if (buffer <= count && largest < product)
+		if (buffer == count && largest < product)
 			largest = product;
 	}
 
