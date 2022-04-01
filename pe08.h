@@ -64,13 +64,13 @@ long long LargestProductInSeriesOptimized(std::string source, size_t buffer)
 			product *= (source[i] - '0');
 			++count;
 		}
-		else if (buffer == count)
+		else if (count == buffer)
 		{
 			//Divide by the removed number, multiply by the added number
 			product = product / (source[i - buffer] - '0') * (source[i] - '0');
 		}
 
-		if (buffer == count && largest < product)
+		if (count == buffer && largest < product)
 			largest = product;
 	}
 
