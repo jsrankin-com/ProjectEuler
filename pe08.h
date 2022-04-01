@@ -35,17 +35,11 @@ long long LargestProductInSeries(std::string source, size_t buffer)
 		long long product = 1;
 
 		for (size_t j = 0; j < buffer; ++j)
-		{
 			product *= (source[i + j] - '0');
-		}
-
 
 		if (largest < product)
-		{
 			largest = product;
-		}
 	}
-
 	return largest;
 }
 
