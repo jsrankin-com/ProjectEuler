@@ -10,17 +10,18 @@ std::vector<long long> PrimeFactor(long long high)
 {
 	std::vector<long long> factors;
 
-
+	//hard coded detection for 2
 	while ((high % 2) == 0) {
 		factors.push_back(2);
 		high /= 2;
 	}
 
+	//hard coded detection for 3
 	while (high % 3 == 0) {
 		factors.push_back(3);
 		high /= 3;
 	}
-
+	//6k ± 1 optimization
 	for (long long i = 5; i <= sqrt(high); i += 6) {
 		while (high % i == 0) {
 			factors.push_back(i);
@@ -32,6 +33,7 @@ std::vector<long long> PrimeFactor(long long high)
 		}
 	}
 
+	//remainder is prime
 	if (high > 4)
 		factors.push_back(high);
 
